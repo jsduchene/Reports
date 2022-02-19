@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>5.72571in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.22in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox2">
+                      <CanGrow>true</CanGrow>
+                      <UserSort>
+                        <SortExpression>=Fields!Group.Value</SortExpression>
+                        <SortTarget>GroupMembership</SortTarget>
+                      </UserSort>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Group</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>DimGray</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#1c3a70</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Group">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Group.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Group</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>DimGray</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="table1_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>GroupMembership</DataSetName>
+        <Top>0.33in</Top>
+        <Height>0.43in</Height>
+        <Width>5.72571in</Width>
+        <Style />
+      </Tablix>
+      <Textbox Name="textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Computer Groups Membership</Value>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>18pt</FontSize>
+                  <Color>#1c3a70</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Height>0.33in</Height>
+        <Width>3.46875in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox35">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Generated on </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=Globals!ExecutionTime</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox35</rd:DefaultName>
+        <Left>3.46875in</Left>
+        <Height>0.33in</Height>
+        <Width>2.25696in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Created by </Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Jean-Sébastien Duchêne</Value>
+                <ActionInfo>
+                  <Actions>
+                    <Action>
+                      <Hyperlink>www.windowstouch.fr</Hyperlink>
+                    </Action>
+                  </Actions>
+                </ActionInfo>
+                <MarkupType>HTML</MarkupType>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox35</rd:DefaultName>
+        <ActionInfo>
+          <Actions>
+            <Action>
+              <Hyperlink>="www.windowstouch.fr"</Hyperlink>
+            </Action>
+          </Actions>
+        </ActionInfo>
+        <Top>2.1336cm</Top>
+        <Left>2.66667in</Left>
+        <Height>0.33in</Height>
+        <Width>3.05904in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>1.17in</Height>
+    <Style />
+  </Body>
+  <Width>5.72571in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <Author>Jean-Sébastien Duchêne</Author>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="OMDB">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=localhost\SQLP01;Initial Catalog=OperationsManager</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>c0cc164e-5839-4653-bd59-b37bd7927feb</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="GroupMembership">
+      <Query>
+        <DataSourceName>OMDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@computername">
+            <Value>=Parameters!computername.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Distinct SourceObjectDisplayName AS 'Group'
+FROM RelationshipGenericView 
+WHERE TargetObjectDisplayName like ('%' + @computername +'%') AND
+(SourceObjectDisplayName IN 
+(SELECT ManagedEntityGenericView.DisplayName 
+FROM ManagedEntityGenericView INNER JOIN 
+(SELECT BaseManagedEntityId 
+FROM BaseManagedEntity WITH (NOLOCK) 
+WHERE (BaseManagedEntityId = TopLevelHostEntityId) AND (BaseManagedEntityId NOT IN 
+(SELECT R.TargetEntityId 
+FROM Relationship AS R WITH (NOLOCK) INNER JOIN 
+dbo.fn_ContainmentRelationshipTypes() AS CRT ON R.RelationshipTypeId = CRT.RelationshipTypeId 
+WHERE (R.IsDeleted = 0)))) AS GetTopLevelEntities ON 
+GetTopLevelEntities.BaseManagedEntityId = ManagedEntityGenericView.Id INNER JOIN 
+(SELECT DISTINCT BaseManagedEntityId 
+FROM TypedManagedEntity WITH (NOLOCK) 
+WHERE (ManagedTypeId IN 
+(SELECT DerivedManagedTypeId 
+FROM dbo.fn_DerivedManagedTypes(dbo.fn_ManagedTypeId_Group()) AS fn_DerivedManagedTypes_1))) AS GetOnlyGroups ON 
+GetOnlyGroups.BaseManagedEntityId = ManagedEntityGenericView.Id)) 
+ORDER BY 'Group' ASC</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Group">
+          <DataField>Group</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Computers">
+      <Query>
+        <DataSourceName>OMDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ShortName">
+            <Value>=Parameters!ShortName.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Distinct bme2.DisplayName
+FROM BaseManagedEntity bme WITH (NOLOCK) 
+INNER JOIN BaseManagedEntity bme2 WITH (NOLOCK) ON bme2.BaseManagedEntityID = bme.TopLevelHostEntityID 
+WHERE bme2.IsDeleted = 0 
+AND bme2.IsDeleted = 0 
+AND bme2.BaseManagedTypeID = (SELECT TOP 1 ManagedTypeID FROM ManagedType WHERE TypeName = 'microsoft.windows.computer') 
+AND bme2.DisplayName like '%' + @ShortName + '%'
+ORDER BY bme2.DisplayName</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="DisplayName">
+          <DataField>DisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="ShortName">
+      <DataType>String</DataType>
+      <Prompt>Enter a servername (full or partly)</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="computername">
+      <DataType>String</DataType>
+      <Prompt>Computer Name</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Computers</DataSetName>
+          <ValueField>DisplayName</ValueField>
+          <LabelField>DisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>adec15c6-c4c8-4b79-81b3-1821cd257e91</rd:ReportID>
+</Report>

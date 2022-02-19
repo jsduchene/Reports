@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?><ManagementPack ContentReadable="true" SchemaVersion="2.0" OriginalSchemaVersion="1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <Manifest>
+    <Identity>
+      <ID>Exchange.DistApp</ID>
+      <Version>1.0.0.0</Version>
+    </Identity>
+    <Name>Exchange 2013 Distributed App</Name>
+    <References>
+      <Reference Alias="Exchange">
+        <ID>Microsoft.Exchange.15</ID>
+        <Version>15.0.620.18</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="MicrosoftSystemCenterServiceDesignerLibrary7084320">
+        <ID>Microsoft.SystemCenter.ServiceDesigner.Library</ID>
+        <Version>7.0.8432.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Image">
+        <ID>System.Image.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="SystemLibrary7585010">
+        <ID>System.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="SystemCenter">
+        <ID>Microsoft.SystemCenter.Library</ID>
+        <Version>7.0.8432.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="SystemHealthLibrary7084320">
+        <ID>System.Health.Library</ID>
+        <Version>7.0.8432.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+    </References>
+  </Manifest>
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="Service_58815ee81bcc4dd4ae70887423925a9c" Accessibility="Public" Abstract="false" Base="MicrosoftSystemCenterServiceDesignerLibrary7084320!Microsoft.SystemCenter.ServiceDesigner.GenericService" Hosted="false" Singleton="true" Extension="false" />
+        <ClassType ID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" Accessibility="Public" Abstract="false" Base="MicrosoftSystemCenterServiceDesignerLibrary7084320!Microsoft.SystemCenter.ServiceDesigner.ServiceComponentGroup" Hosted="false" Singleton="true" Extension="false" />
+      </ClassTypes>
+      <RelationshipTypes>
+        <RelationshipType ID="SCIMembership_f15f1b91f958457494c40d5ba776f906" Accessibility="Public" Abstract="false" Base="SystemLibrary7585010!System.Containment">
+          <Source ID="source" MinCardinality="0" MaxCardinality="2147483647" Type="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" />
+          <Target ID="target" MinCardinality="0" MaxCardinality="2147483647" Type="Exchange!Microsoft.Exchange.15.HealthSet" />
+        </RelationshipType>
+        <RelationshipType ID="SCMembership_051dffcbc976440ba64edc44a6fdb6a8" Accessibility="Public" Abstract="false" Base="SystemLibrary7585010!System.Containment">
+          <Source ID="source" MinCardinality="0" MaxCardinality="2147483647" Type="Service_58815ee81bcc4dd4ae70887423925a9c" />
+          <Target ID="target" MinCardinality="0" MaxCardinality="2147483647" Type="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" />
+        </RelationshipType>
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <Monitoring>
+    <Discoveries>
+      <Discovery ID="Service_58815ee81bcc4dd4ae70887423925a9c_SCPopulation" Enabled="true" Target="Service_58815ee81bcc4dd4ae70887423925a9c" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes />
+        <DataSource ID="DS" TypeID="SystemCenter!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="SCMembership_051dffcbc976440ba64edc44a6fdb6a8"]$</RelationshipClass>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+      <Discovery ID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c_ItemPopulation" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes />
+        <DataSource ID="DS" TypeID="SystemCenter!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Exchange!Microsoft.Exchange.15.HealthSet"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="SCIMembership_f15f1b91f958457494c40d5ba776f906"]$</RelationshipClass>
+              <IncludeList>
+                <MonitoringObjectId>{9dd75ea2-49cb-be61-6aa2-a3b1761e8b17}</MonitoringObjectId>
+                <MonitoringObjectId>{ea079083-81e5-e785-ad9d-a1452162fb7c}</MonitoringObjectId>
+                <MonitoringObjectId>{ef8d8582-a1cb-f611-06ff-f22925bb9cde}</MonitoringObjectId>
+                <MonitoringObjectId>{0dc5911b-69a1-f5ce-11e8-07230b91e3f4}</MonitoringObjectId>
+                <MonitoringObjectId>{f70989a2-fab6-018d-0724-30ee4031f253}</MonitoringObjectId>
+              </IncludeList>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+    </Discoveries>
+    <Monitors>
+      <DependencyMonitor ID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Custom_HealthMonitor" Accessibility="Public" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.AvailabilityState" Remotable="true" Priority="Normal" RelationshipType="SCIMembership_f15f1b91f958457494c40d5ba776f906" MemberMonitor="Exchange!HealthSetUnitMonitor">
+        <Category>Custom</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Availability_HealthMonitor" Accessibility="Public" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.AvailabilityState" Remotable="true" Priority="Normal" RelationshipType="SCIMembership_f15f1b91f958457494c40d5ba776f906" MemberMonitor="SystemHealthLibrary7084320!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Performance_HealthMonitor" Accessibility="Public" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.PerformanceState" Remotable="true" Priority="Normal" RelationshipType="SCIMembership_f15f1b91f958457494c40d5ba776f906" MemberMonitor="SystemHealthLibrary7084320!System.Health.PerformanceState">
+        <Category>PerformanceHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Configuration_HealthMonitor" Accessibility="Public" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.ConfigurationState" Remotable="true" Priority="Normal" RelationshipType="SCIMembership_f15f1b91f958457494c40d5ba776f906" MemberMonitor="SystemHealthLibrary7084320!System.Health.ConfigurationState">
+        <Category>ConfigurationHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Security_HealthMonitor" Accessibility="Public" Enabled="true" Target="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.SecurityState" Remotable="true" Priority="Normal" RelationshipType="SCIMembership_f15f1b91f958457494c40d5ba776f906" MemberMonitor="SystemHealthLibrary7084320!System.Health.SecurityState">
+        <Category>SecurityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="SCMembership_051dffcbc976440ba64edc44a6fdb6a8_Availability_HealthMonitor" Accessibility="Public" Enabled="true" Target="Service_58815ee81bcc4dd4ae70887423925a9c" ParentMonitorID="SystemHealthLibrary7084320!System.Health.AvailabilityState" Remotable="true" Priority="Normal" RelationshipType="SCMembership_051dffcbc976440ba64edc44a6fdb6a8" MemberMonitor="SystemHealthLibrary7084320!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+    </Monitors>
+  </Monitoring>
+  <Presentation>
+    <ImageReferences>
+      <ImageReference ElementID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ImageID="Image!GenericBaseEntity16" />
+      <ImageReference ElementID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c" ImageID="Image!GenericBaseEntity80" />
+    </ImageReferences>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="false">
+      <DisplayStrings>
+        <DisplayString ElementID="Exchange.DistApp">
+          <Name>Exchange 2013 Distributed App</Name>
+          <Description>Store Exchange Distributed Applications</Description>
+        </DisplayString>
+        <DisplayString ElementID="Service_58815ee81bcc4dd4ae70887423925a9c">
+          <Name>Exchange 2013 - POP</Name>
+        </DisplayString>
+        <DisplayString ElementID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c">
+          <Name>POP</Name>
+        </DisplayString>
+        <DisplayString ElementID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Custom_HealthMonitor">
+          <Name>Component Group Health Roll-up for type Object</Name>
+          <Description>The health of this Component is determined by the health of its members. This monitor rolls up health from each of the members of this Component.</Description>
+        </DisplayString>
+        <DisplayString ElementID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Performance_HealthMonitor">
+          <Name>Component Group Health Roll-up for type Object</Name>
+          <Description>The health of this Component is determined by the health of its members. This monitor rolls up health from each of the members of this Component.</Description>
+        </DisplayString>
+        <DisplayString ElementID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Configuration_HealthMonitor">
+          <Name>Component Group Health Roll-up for type Object</Name>
+          <Description>The health of this Component is determined by the health of its members. This monitor rolls up health from each of the members of this Component.</Description>
+        </DisplayString>
+        <DisplayString ElementID="SCIMembership_f15f1b91f958457494c40d5ba776f906_Security_HealthMonitor">
+          <Name>Component Group Health Roll-up for type Object</Name>
+          <Description>The health of this Component is determined by the health of its members. This monitor rolls up health from each of the members of this Component.</Description>
+        </DisplayString>
+        <DisplayString ElementID="SCMembership_051dffcbc976440ba64edc44a6fdb6a8_Availability_HealthMonitor">
+          <Name>Service Health Roll-up for component POP</Name>
+          <Description>The health of this service is determined by the health of its components. This monitor rolls up health from a particular component to the serivce.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Service_58815ee81bcc4dd4ae70887423925a9c_SCPopulation">
+          <Name>Distributed Application Membership Discovery</Name>
+          <Description>This discovery will find which Components are members of this Distributed Application.</Description>
+        </DisplayString>
+        <DisplayString ElementID="SC_b22070c172ad4c10a8262b78c4477726_Service_58815ee81bcc4dd4ae70887423925a9c_ItemPopulation">
+          <Name>Component Membership Discovery</Name>
+          <Description>This discovery will find which Objects are members of this Component.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPack>
